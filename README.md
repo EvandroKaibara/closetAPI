@@ -23,6 +23,22 @@ Connection settings come from environment variables, with local defaults:
 
 Flyway creates the tables on startup.
 
+## Resources
+
+Each path supports `GET` (list), `GET /{id}`, `POST`, `PUT /{id}` and `DELETE /{id}`.
+
+| Path | Fields |
+|---|---|
+| `/sneakers` | brand, name, purchasePrice, size, color, style |
+| `/tshirts` | brand, name, purchasePrice, size, color, fit |
+| `/pants` | brand, size, color, fit |
+| `/hoodies` | brand, color |
+| `/accessories` | brand, type, color |
+| `/jackets` | brand, name, purchasePrice, size, color |
+| `/outfits` | name, sneakerId, tshirtId, pantsId, hoodieId, jacketId, accessoryIds |
+
+An outfit references pieces by id, and every piece is optional. Deleting a piece removes it from any outfit that uses it; deleting an outfit keeps its pieces.
+
 ## API docs
 
 Swagger UI: http://localhost:8080/swagger-ui.html
